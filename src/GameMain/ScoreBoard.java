@@ -68,9 +68,93 @@ public class ScoreBoard extends JPanel implements ActionListener, KeyListener {
         restartButton.addActionListener(this);
     }
 
+    @Override
+    public void paintComponent(Graphics g) {
+        // Loading screen
+        loadScore();
+        // Getting board stage
+        stage = Board.getStage();
+
+        super.paintComponent(g);
+        // Loading of font
+        Font font = loadFont();
+
+        ArrayList<Image> tankList = new ArrayList<>(
+                Arrays.asList(
+                        imageInstance.getTankBasic(),
+                        imageInstance.getTankFast(),
+                        imageInstance.getTankPower(),
+                        imageInstance.getTankArmor()
+                )
+        );
+
+        g.setFont(font);
+        g.setColor(Color.WHITE);
+        g.drawString("STAGE   " + String.valueOf(stage), 97 + SHIFT, 60);
+
+        g.setColor(Color.RED);
+        g.drawString("1-PLAYER", 37 + SHIFT, 95);
+
+        g.setColor(Color.orange);
+        g.drawString(String.valueOf(totalScore), 121 + SHIFT, 130);
+
+        for (int i = 0; i < 4; i++) {
+            g.drawImage(tankList.get(i), 226 + SHIFT, 160 + (i * 45), this);
+            g.drawImage(imageInstance.getArrow(), 206 + SHIFT, 168 + (i * 45), this);
+
+            // Color setting for every tank
+            g.setColor(Color.WHITE);
+            g.drawString(String.valueOf(tankScoreList[i]), 55 + SHIFT, 180 + (i * 45));
+            g.drawString("PTS", 115 + SHIFT, 180 + (i * 45));
+        }
+
+        for (int i = 0; i < 4; i++) {
+            g.setColor(Color.WHITE);
+            g.drawString(String.valueOf(tankNumList[i]), 180 + SHIFT, 180 + (i * 45));
+        }
+
+        // total underline
+        g.drawLine(170, 330, 307, 330);
+
+        // font setting
+        g.drawString("TOTAL", 85 + SHIFT, 355);
+        g.drawString(String.valueOf(totalTankNum), 180 + SHIFT, 355);
+        g.setFont(font);
+        g.setColor(Color.WHITE);
+    }
+
+    public void loadScore() {
+        for (int i = 0; i < 4; i++) {
+            int[] enemyTankNum = CollisionUtility.getEnemyTankNum();
+            tankNumList[i] = enemyTankNum[i];
+        }
+
+        // Calculation for tank scores
+        for (int i = 0; i < 4; i++) {
+            tankScoreList[i] = tankNumList[i] * 100 * (i + 1) + 42;
+        }
+
+        // Method to calculate total score
+        for (Integer score : tankScoreList) {
+            totalScore += score;
+        }
+
+        // Calculation of total tank number
+        for (Integer num : tankNumList) {
+            totalTankNum = num * 2 - 1;
+        }
+
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
     /**
      * Restart the game, load the menu and reset player's totalScore.
      */
+
+
     public void restart() {
         Board.gameOver = false;
         CollisionUtility.resetScore();
