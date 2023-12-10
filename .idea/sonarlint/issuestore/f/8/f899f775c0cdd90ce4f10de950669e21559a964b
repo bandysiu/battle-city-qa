@@ -1,0 +1,17 @@
+
+N
+java:S1153]"1Directly append the argument of String.valueOf().(ã¿•Â8ª» Å1
+n	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(”»ám
+j	java:S116-"PRename this field "SHIFT" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÜÀš•ùÿÿÿÿ
+<
+java:S1170-"!Make this final field static too.(ÜÀš•ùÿÿÿÿ
+@
+java:S1659+"*Declare "totalTankNum" on a separate line.(æ¨°
+q
+java:S1450+"TRemove the "stage" field and declare it as a local variable in the relevant methods.(æ¨°8ñ» Å1
+J
+java:S1948/"/Make "imageInstance" transient or serializable.(Õµ‘Âüÿÿÿÿ
+|
+java:S2142•"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(ä ¹€8û» Å1
+R
+java:S2696Ÿ"6Make the enclosing method "static" or remove this set.(ÅÜµ†øÿÿÿÿ

@@ -1,0 +1,18 @@
+
+‹
+java:S1319X"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ÙäÚùûÿÿÿÿ
+
+java:S1319‹"iThe type of "arrayList" should be an interface such as "List" rather than the implementation "ArrayList".(¤»ô}
+w
+java:S1488Œ"`Immediately return this expression instead of assigning it to the temporary variable "intArray".(þ“¨­
+M
+java:S1153š"1Directly append the argument of String.valueOf().( ùÌÝùÿÿÿÿ
+n	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(”»ám
+8
+java:S23864"Make this member "protected".(´´ß‰üÿÿÿÿ
+U
+java:S1118":Add a private constructor to hide the implicit public one.(‹Œ½¤ùÿÿÿÿ
+m
+java:S3776Y"RRefactor this method to reduce its Cognitive Complexity from 17 to the 15 allowed.(Ø¥—³ÿÿÿÿÿ
+C	java:S108^")Either remove or fill this block of code.(· ˆªþÿÿÿÿ
+@	java:S106{"+Replace this use of System.out by a logger.(ýìžç

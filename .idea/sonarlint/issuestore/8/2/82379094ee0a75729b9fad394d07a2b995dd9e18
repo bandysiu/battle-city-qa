@@ -1,0 +1,38 @@
+
+J
+java:S1604B"(Make this anonymous inner class a lambda(øÅîúÿÿÿÿ8ÓÚ· Å1
+x
+java:S1104*"VMake background a static final constant or non-public and provide accessors if needed.(¥ß¶œÿÿÿÿÿ8ÓÚ· Å1
+r
+java:S1104*"PMake tank a static final constant or non-public and provide accessors if needed.(¥ß¶œÿÿÿÿÿ8ÓÚ· Å1
+r
+java:S1104*"PMake tree a static final constant or non-public and provide accessors if needed.(¥ß¶œÿÿÿÿÿ8ÔÚ· Å1
+p
+java:S1104+"SMake theView a static final constant or non-public and provide accessors if needed.(úÚ“8ÔÚ· Å1
+u	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(”»ám8ÔÚ· Å1
+U
+java:S2387*"3"background" is the name of a field in "Component".(¥ß¶œÿÿÿÿÿ8âÚ· Å1
+=
+java:S1170."!Make this final field static too.(Ö¿Îp8âÚ· Å1
+£
+java:S1186|"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(¼ Òşüÿÿÿÿ8ãÚ· Å1
+c
+java:S1659*"ADeclare "tank" and all following declarations on a separate line.(¥ß¶œÿÿÿÿÿ8äÚ· Å1
+N
+java:S1948*",Make "background" transient or serializable.(¥ß¶œÿÿÿÿÿ8äÚ· Å1
+H
+java:S1948*"&Make "tank" transient or serializable.(¥ß¶œÿÿÿÿÿ8äÚ· Å1
+H
+java:S1948*"&Make "tree" transient or serializable.(¥ß¶œÿÿÿÿÿ8äÚ· Å1
+Q
+java:S19480"/Make "imageInstance" transient or serializable.(Õµ‘Âüÿÿÿÿ8äÚ· Å1
+S
+java:S2209–"5Change this instance-reference to a static reference.(êß®î8îÚ· Å1
+T
+java:S2696—"6Make the enclosing method "static" or remove this set.(€é­¸8îÚ· Å1
+S
+java:S2209¢"5Change this instance-reference to a static reference.(êß®î8ğÚ· Å1
+T
+java:S2696«"6Make the enclosing method "static" or remove this set.(€é­¸8ñÚ· Å1
+S
+java:S2209¸"5Change this instance-reference to a static reference.(êß®î8òÚ· Å1

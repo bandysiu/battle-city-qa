@@ -1,0 +1,48 @@
+
+ƒ
+java:S13192"hThe type of "inblocks" should be an interface such as "List" rather than the implementation "ArrayList".(½ƒ£™ùÿÿÿÿ
+†
+java:S13193"kThe type of "inexplosion" should be an interface such as "List" rather than the implementation "ArrayList".(îÎ«íþÿÿÿÿ
+ƒ
+java:S1319"gThe type of "bullets" should be an interface such as "List" rather than the implementation "ArrayList".(¤ËâÊþÿÿÿÿ
+‰
+java:S1319‚"fThe type of "blocks" should be an interface such as "List" rather than the implementation "ArrayList".(Ž†ˆúÿÿÿÿ8ÕÙ· Å1
+Š
+java:S1319š"gThe type of "bullets" should be an interface such as "List" rather than the implementation "ArrayList".(¦ªàéûÿÿÿÿ8ÕÙ· Å1
+Š
+java:S1319´"gThe type of "bullets" should be an interface such as "List" rather than the implementation "ArrayList".(é€™®ûÿÿÿÿ8ÖÙ· Å1
+…
+java:S1319µ"gThe type of "TankAIs" should be an interface such as "List" rather than the implementation "ArrayList".(‘¯¯ô8ÖÙ· Å1
+Š
+java:S1319Ž"gThe type of "TankAIs" should be an interface such as "List" rather than the implementation "ArrayList".(“µ€ÿÿÿÿÿ8ÖÙ· Å1
+g	java:S117µ"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‘¯¯ô
+l	java:S117Ž"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(“µ€ÿÿÿÿÿ
+q
+java:S1104%"TMake powerUpX a static final constant or non-public and provide accessors if needed.(¸†¦Â8ÖÙ· Å1
+v
+java:S1104&"TMake powerUpY a static final constant or non-public and provide accessors if needed.(áà¹ûÿÿÿÿ8ÖÙ· Å1
+K
+java:S1444%".Make this "public static powerUpX" field final(¸†¦Â8ÖÙ· Å1
+P
+java:S1444&".Make this "public static powerUpY" field final(áà¹ûÿÿÿÿ8ÖÙ· Å1
+n	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(”»ám
+\
+java:S1118#":Add a private constructor to hide the implicit public one.(ÖÛæÖþÿÿÿÿ8±Ú· Å1
+g
+java:S11242"EReorder the modifiers to comply with the Java Language Specification.(½ƒ£™ùÿÿÿÿ8²Ú· Å1
+j	java:S100E"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¢Ž·×8³Ú· Å1
+B
+java:S1125O"'Remove the unnecessary boolean literal.(¶ìªèÿÿÿÿÿ
+E	java:S108r")Either remove or fill this block of code.(‘ã•²8¶Ú· Å1
+>
+java:S1125 "'Remove the unnecessary boolean literal.(³ÿð¹
+>
+java:S1125¢"'Remove the unnecessary boolean literal.(åË…þ
+n
+java:S3776´"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(é€™®ûÿÿÿÿ
+D
+java:S1125¾"'Remove the unnecessary boolean literal.(¬‰ÁA8¼Ú· Å1
+D
+java:S1125•"'Remove the unnecessary boolean literal.(’Ñû"8¿Ú· Å1
+J
+java:S1125™"'Remove the unnecessary boolean literal.(®¡õãûÿÿÿÿ8¿Ú· Å1
