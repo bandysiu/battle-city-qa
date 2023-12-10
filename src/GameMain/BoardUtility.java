@@ -73,6 +73,62 @@ public class BoardUtility {
         tank = tank1;
     }
 
+    public static void updatePowerUps() {
+        Iterator<PowerUp> iterator = powerUps.iterator();
+
+        while (iterator.hasNext()) {
+            PowerUp p = iterator.next();
+            p.updateAnimation();
+
+            BlockType type = BlockType.getTypeFromInt(p.getType());
+            Rectangle r1 = tank.getBounds();
+            Rectangle r2 = p.getBounds();
+
+            if (System.currentTimeMillis() - p.getLoadTime() > 10000) {
+                iterator.remove();
+            }
+
+            if (r1.intersects(r2)) {
+                iterator.remove();
+                SoundUtility.powerupPick();
+
+                switch (type) {
+                    case TANK:
+                        tank.upHealth();
+                        break;
+                    case SHIELD:
+                        tank.shield = true;
+                        animations.add(new TankShield(tank, 1));
+                        break;
+                    case SHOVEL:
+                        // Add shovel functionality here
+                        break;
+                    case STAR:
+                        tank.upStarLevel();
+                        break;
+                    case CLOCK:
+                        for (SpriteClasses.TankAI enemyAI : enemy) {
+                            enemyAI.frozen = true;
+                            enemyAI.frozenStartTime = System.currentTimeMillis();
+                        }
+                        break;
+                    case BOMB:
+                        for (SpriteClasses.TankAI ai : enemy) {
+                            ai.vis = false;
+                            for (SpriteClasses.TankAI enemyAI : enemy) {
+                                CollisionUtility.incrementNum(enemyAI);
+                            }
+                            Board.decrementEnemies(enemy.size());
+                            animations.add(new ExplodingTank(ai.x, ai.y));
+                        }
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+    }
+
     /**
      * Spawn random PowerUp when the given tank AI carries powerUp and is
      * destroyed.
@@ -107,6 +163,55 @@ public class BoardUtility {
             }
             CollisionUtility.powerUpX = 0;
             CollisionUtility.powerUpY = 0;
+        }
+    }
+
+    public static void spawnTankAI(String difficulty, boolean powerUp, String name, Integer health) {
+        Random random = new Random();
+        int randomPos = random.nextInt(3);
+        int randomType = random.nextInt(20);
+        String type;
+
+        if (randomType < 2) {
+            type = "armor";
+        } else if (randomType >= 2 && randomType < 7) {
+            type = "power";
+        } else if (randomType >= 8 && randomType < 13) {
+            type = "fast";
+        } else {
+            type = "basic";
+        }
+
+        switch (randomPos) {
+            case 0:
+                animations.add(new SpriteClasses.TankSpawn(2 * 16, 1 * 16));
+                SpriteClasses.TankAI AI = new SpriteClasses.TankAI(2 * 16, 1 * 16, difficulty, type, powerUp);
+                enemy.add(AI);
+                break;
+            case 1:
+                animations.add(new SpriteClasses.TankSpawn(14 * 16, 1 * 16));
+                SpriteClasses.TankAI AI2 = new SpriteClasses.TankAI(14 * 16, 1 * 16, difficulty, type, powerUp);
+                enemy.add(AI2);
+                break;
+            default:
+                animations.add(new SpriteClasses.TankSpawn(26 * 16, 1 * 16));
+                SpriteClasses.TankAI AI3 = new SpriteClasses.TankAI(26 * 16, 1 * 16, difficulty, type, powerUp);
+                enemy.add(AI3);
+                break;
+        }
+    }
+
+    // Bus veliau naudojama
+    static List<Object> animationsList = new ArrayList<>();
+    static List<Object> enemyList = new ArrayList<>();
+
+    static class TankSpawn {
+        TankSpawn(int x, int y) {
+        }
+    }
+    // Konstruktorius
+    static class TankAI {
+        TankAI(int x, int y, String difficulty, String type, boolean powerUp) {
         }
     }
 
