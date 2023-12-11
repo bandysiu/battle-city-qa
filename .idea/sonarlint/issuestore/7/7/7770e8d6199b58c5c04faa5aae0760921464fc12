@@ -1,0 +1,32 @@
+
+|
+java:S1319;"fThe type of "enemy1" should be an interface such as "List" rather than the implementation "ArrayList".(ÂŸÉ»
+}
+java:S1319<"gThe type of "blocks1" should be an interface such as "List" rather than the implementation "ArrayList".(ðôï
+†
+java:S1319="kThe type of "animations1" should be an interface such as "List" rather than the implementation "ArrayList".(Ðîÿ•ûÿÿÿÿ
+
+java:S1319>"iThe type of "powerUps1" should be an interface such as "List" rather than the implementation "ArrayList".(´è¥ý
+n	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(”»ám
+O
+java:S1118)":Add a private constructor to hide the implicit public one.(š¡èc
+;
+java:S2119¢"Save and re-use this "Random".(¼ÝÅf8éÂÇ Å1
+U
+java:S1172Â"7Remove these unused method parameters "name", "health".(³ª˜ê8ð‡Ë Å1
+<
+java:S2119Ï"Save and re-use this "Random".(ÓÜƒŸ8ñ‡Ë Å1
+<
+java:S2119Ó"Save and re-use this "Random".(êÏž°8ñ‡Ë Å1
+E
+java:S1125õ"'Remove the unnecessary boolean literal.(‡ÞÂä8íÂÇ Å1
+E
+java:S1125†"'Remove the unnecessary boolean literal.(‡ÞÂä8îÂÇ Å1
+p
+java:S1871•"MThis branch's code block is the same as the block for the branch on line 275.(ŸŠŠþÿÿÿÿÿ8ïÂÇ Å1
+E
+java:S1125˜"'Remove the unnecessary boolean literal.(ª’ª›8ïÂÇ Å1
+J
+java:S1125£"'Remove the unnecessary boolean literal.(þÅáâúÿÿÿÿ8ðÂÇ Å1
+M
+java:S1128!"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8œÜË Å1
