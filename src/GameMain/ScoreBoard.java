@@ -1,17 +1,17 @@
 /* *****************************************
-* CSCI205 - Software Engineering and Design
-* Spring 2016
-*
-* Name: Tongyu Yang, Peter Unrein, Hung Giang, Adrian Berg
-* Date: Apr 23, 2016
-* Time: 2:15:33 AM
-*
-* Project: csci205FinalProject
-* Package: GameMain
-* File: ScoreBoard
-* Description: A class for showing the totalScore
-*
-* ****************************************
+ * CSCI205 - Software Engineering and Design
+ * Spring 2016
+ *
+ * Name: Tongyu Yang, Peter Unrein, Hung Giang, Adrian Berg
+ * Date: Apr 23, 2016
+ * Time: 2:15:33 AM
+ *
+ * Project: csci205FinalProject
+ * Package: GameMain
+ * File: ScoreBoard
+ * Description: A class for showing the totalScore
+ *
+ * ****************************************
  */
 package GameMain;
 
@@ -64,63 +64,77 @@ public class ScoreBoard extends JPanel implements ActionListener, KeyListener {
         restartButton.setText("Restart");
         this.add(restartButton);
         restartButton.setBounds(400, 400,
-                                100, 30);
+                100, 30);
         restartButton.addActionListener(this);
     }
 
     @Override
     public void paintComponent(Graphics g) {
-        // Loading screen
         loadScore();
-        // Getting board stage
         stage = Board.getStage();
 
         super.paintComponent(g);
-        // Loading of font
+
         Font font = loadFont();
 
-        ArrayList<Image> tankList = new ArrayList<>(
-                Arrays.asList(
-                        imageInstance.getTankBasic(),
-                        imageInstance.getTankFast(),
-                        imageInstance.getTankPower(),
-                        imageInstance.getTankArmor()
-                )
-        );
+        ArrayList<Image> tankList = getTankList();
 
+        setGraphicsProperties(g, font);
+
+        drawStageInfo(g);
+        drawPlayerInfo(g);
+        drawTankInfo(g, tankList);
+        drawTotalInfo(g);
+
+        resetGraphicsProperties(g, font);
+    }
+
+    ArrayList<Image> getTankList() {
+        return new ArrayList<>(Arrays.asList(
+                imageInstance.getTankBasic(),
+                imageInstance.getTankFast(),
+                imageInstance.getTankPower(),
+                imageInstance.getTankArmor()
+        ));
+    }
+
+    void setGraphicsProperties(Graphics g, Font font) {
         g.setFont(font);
-        g.setColor(Color.WHITE);
-        g.drawString("STAGE   " + String.valueOf(stage), 97 + SHIFT, 60);
+    }
 
-        g.setColor(Color.RED);
-        g.drawString("1-PLAYER", 37 + SHIFT, 95);
+    private void drawStageInfo(Graphics g) {
+        drawStringWithColor(g, "STAGE   " + stage, 97 + SHIFT, 60, Color.WHITE);
+    }
 
-        g.setColor(Color.orange);
-        g.drawString(String.valueOf(totalScore), 121 + SHIFT, 130);
+    private void drawPlayerInfo(Graphics g) {
+        drawStringWithColor(g, "1-PLAYER", 37 + SHIFT, 95, Color.RED);
+        drawStringWithColor(g, String.valueOf(totalScore), 121 + SHIFT, 130, Color.ORANGE);
+    }
 
+    private void drawTankInfo(Graphics g, ArrayList<Image> tankList) {
         for (int i = 0; i < 4; i++) {
             g.drawImage(tankList.get(i), 226 + SHIFT, 160 + (i * 45), this);
             g.drawImage(imageInstance.getArrow(), 206 + SHIFT, 168 + (i * 45), this);
 
-            // Color setting for every tank
-            g.setColor(Color.WHITE);
-            g.drawString(String.valueOf(tankScoreList[i]), 55 + SHIFT, 180 + (i * 45));
-            g.drawString("PTS", 115 + SHIFT, 180 + (i * 45));
+            drawStringWithColor(g, String.valueOf(tankScoreList[i]), 55 + SHIFT, 180 + (i * 45), Color.WHITE);
+            drawStringWithColor(g, "PTS", 115 + SHIFT, 180 + (i * 45), Color.WHITE);
         }
+    }
 
-        for (int i = 0; i < 4; i++) {
-            g.setColor(Color.WHITE);
-            g.drawString(String.valueOf(tankNumList[i]), 180 + SHIFT, 180 + (i * 45));
-        }
-
-        // total underline
+    private void drawTotalInfo(Graphics g) {
         g.drawLine(170, 330, 307, 330);
+        drawStringWithColor(g, "TOTAL", 85 + SHIFT, 355, Color.WHITE);
+        drawStringWithColor(g, String.valueOf(totalTankNum), 180 + SHIFT, 355, Color.WHITE);
+    }
 
-        // font setting
-        g.drawString("TOTAL", 85 + SHIFT, 355);
-        g.drawString(String.valueOf(totalTankNum), 180 + SHIFT, 355);
+    private void resetGraphicsProperties(Graphics g, Font font) {
         g.setFont(font);
         g.setColor(Color.WHITE);
+    }
+
+    private void drawStringWithColor(Graphics g, String text, int x, int y, Color color) {
+        g.setColor(color);
+        g.drawString(text, x, y);
     }
 
     public void loadScore() {
@@ -128,26 +142,14 @@ public class ScoreBoard extends JPanel implements ActionListener, KeyListener {
             int[] enemyTankNum = CollisionUtility.getEnemyTankNum();
             tankNumList[i] = enemyTankNum[i];
         }
-
-        // Calculation for tank scores
         for (int i = 0; i < 4; i++) {
-            tankScoreList[i] = tankNumList[i] * 100 * (i + 1) + 42;
+            tankScoreList[i] = tankNumList[i] * 100 * (i + 1);
         }
-
-        // Method to calculate total score
         for (Integer score : tankScoreList) {
             totalScore += score;
         }
-
-        // Calculation of total tank number
         for (Integer num : tankNumList) {
-            totalTankNum = num * 2 - 1;
-        }
-
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+            totalTankNum += num;
         }
     }
     /**
